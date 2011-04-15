@@ -114,6 +114,10 @@ Disallow: /cgi-bin/
       last_response.should be_ok
     end
 
+    it "sends the correct Cache-Control header" do
+      last_response["Cache-Control"].should == "public, max-age=43200"
+    end
+
     it "sends the correct Content-Type header" do
       last_response["Content-Type"].should == "image/jpeg"
     end
